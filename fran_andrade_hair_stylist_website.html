@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Fran Andrade • Hair Stylist & Beauty</title>
+  
+  <!-- SEO & Meta Tags -->
+  <meta name="description" content="Fran Andrade - Especialista em mechas, corte visagista, terapia capilar e saúde dos fios em Campinas/SP." />
+  <meta name="theme-color" content="#FAF8F5" />
+
+  <!-- Standard Google Web Fonts (Inter & Plus Jakarta Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Material Symbols & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#FAF8F5",
+            "surface-card": "#FFFFFF",
+            "surface-muted": "#F3EDE6",
+            "surface-dark": "#1A1615",
+            "primary": "#B89248",
+            "primary-hover": "#A27E38",
+            "primary-light": "#F7F1E5",
+            "secondary": "#A83E58",
+            "text-main": "#2D2623",
+            "text-muted": "#6E655F",
+            "border-subtle": "#E5DCD3"
+          },
+          fontFamily: {
+            "sans": ["Plus Jakarta Sans", "Inter", "system-ui", "sans-serif"],
+            "heading": ["Inter", "Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* BASE STYLES & TYPOGRAPHY */
+    body {
+      font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+      background-color: #FAF8F5;
+      color: #2D2623;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Inter', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    /* 3D FLIPCARDS CSS */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    
+    .transform-style-3d {
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card:hover .flip-card-inner,
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    /* UTILITY CLASSES */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(229, 220, 211, 0.6);
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #FAF8F5;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #D8CCC0;
+      border-radius: 99px;
+    }
+
+    /* ANIMATIONS */
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .animate-slide-up {
+      animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .toast-enter {
+      animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes slideInRight {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+  </style>
+</head>
+
+<body class="bg-surface text-text-main flex flex-col min-h-screen antialiased selection:bg-primary/20 selection:text-primary">
+
+  <!-- ========================================== -->
+  <!-- 1. CABEÇALHO FIXO -->
+  <!-- ========================================== -->
+  <header id="main-header" class="fixed top-0 w-full z-40 bg-surface/90 backdrop-blur-md border-b border-border-subtle transition-all duration-300">
+    <div class="max-w-6xl mx-auto h-16 px-4 sm:px-6 flex items-center justify-between gap-4">
+      
+      <!-- Brand & Mobile Menu Trigger -->
+      <div class="flex items-center gap-3">
+        <button id="mobile-menu-btn" onclick="toggleMobileDrawer()" aria-label="Abrir Menu" class="md:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-surface-muted text-text-main hover:bg-border-subtle transition-colors">
+          <span class="material-symbols-outlined text-[24px]">menu</span>
+        </button>
+        <a href="#inicio" class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white font-bold text-sm shadow-sm">
+            FA
+          </div>
+          <div class="flex flex-col">
+            <span class="font-heading text-base font-bold text-text-main tracking-tight leading-tight">Fran Andrade</span>
+            <span class="text-[10px] uppercase font-semibold tracking-wider text-primary">Hair Stylist & Visagismo</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Desktop Nav Links -->
+      <nav aria-label="Navegação Principal" class="hidden md:flex items-center gap-6 text-sm font-medium text-text-muted">
+        <a href="#inicio" class="hover:text-primary transition-colors">Início</a>
+        <a href="#sobre" class="hover:text-primary transition-colors">Sobre</a>
+        <a href="#servicos" class="hover:text-primary transition-colors">Serviços VIP</a>
+        <a href="#quiz" class="hover:text-primary transition-colors flex items-center gap-1 text-primary font-semibold">
+          <span class="material-symbols-outlined text-[16px]">auto_awesome</span> Quiz Capilar
+        </a>
+        <a href="#combo" class="hover:text-primary transition-colors">Monte seu Combo</a>
+        <a href="#contato" class="hover:text-primary transition-colors">Contato</a>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="flex items-center gap-3">
+        <button onclick="openBookingModal()" class="px-4 py-2 rounded-xl bg-secondary hover:bg-secondary/90 text-white font-semibold text-xs uppercase tracking-wider shadow-sm active:scale-95 transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+          <span class="hidden xs:inline">Agendar</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER MENU -->
+  <div id="mobile-drawer" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="mobile-drawer-content" class="fixed top-0 left-0 bottom-0 w-4/5 max-w-sm bg-surface p-6 shadow-2xl flex flex-col justify-between transform -translate-x-full transition-transform duration-300 ease-out">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-border-subtle">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-white font-bold text-xs">FA</div>
+            <span class="font-heading text-lg font-bold text-text-main">Fran Andrade</span>
+          </div>
+          <button onclick="toggleMobileDrawer()" aria-label="Fechar Menu" class="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-surface-muted">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        
+        <nav class="flex flex-col gap-2 mt-6 text-base font-medium">
+          <a href="#inicio" onclick="toggleMobileDrawer()" class="p-3 rounded-xl hover:bg-surface-muted flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary">home</span> Início
+          </a>
+          <a href="#sobre" onclick="toggleMobileDrawer()" class="p-3 rounded-xl hover:bg-surface-muted flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary">person</span> Sobre a Fran
+          </a>
+          <a href="#servicos" onclick="toggleMobileDrawer()" class="p-3 rounded-xl hover:bg-surface-muted flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary">spa</span> Serviços & Flipcards
+          </a>
+          <a href="#quiz" onclick="toggleMobileDrawer()" class="p-3 rounded-xl hover:bg-surface-muted flex items-center gap-3 text-primary font-semibold">
+            <span class="material-symbols-outlined">auto_awesome</span> Quiz Capilar Express
+          </a>
+          <a href="#combo" onclick="toggleMobileDrawer()" class="p-3 rounded-xl hover:bg-surface-muted flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary">calculate</span> Monte Seu Combo
+          </a>
+          <a href="#contato" onclick="toggleMobileDrawer()" class="p-3 rounded-xl hover:bg-surface-muted flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary">location_on</span> Localização & Contato
+          </a>
+        </nav>
+      </div>
+
+      <div class="pt-6 border-t border-border-subtle">
+        <button onclick="openBookingModal(); toggleMobileDrawer();" class="w-full h-12 flex items-center justify-center gap-2 rounded-xl bg-secondary text-white font-semibold text-sm shadow-sm">
+          <span class="material-symbols-outlined">calendar_month</span> Agendar via WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="flex-1 w-full max-w-6xl mx-auto pt-20 pb-16">
+
+    <!-- SUB-HEADER ANNOUNCEMENT BANNER -->
+    <div class="px-4 sm:px-6 mb-6">
+      <div class="bg-surface-card border border-border-subtle px-4 py-3 rounded-2xl flex flex-wrap items-center justify-between gap-3 shadow-sm">
+        <div class="flex items-center gap-2 text-xs text-text-muted">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Atendimento Hoje: <strong>08h às 20h</strong></span>
+          <span class="hidden sm:inline">• Av. Três, 341 - Jardim Sao Joao, Campinas/SP</span>
+        </div>
+        <div class="flex items-center gap-3 text-xs">
+          <a href="#quiz" class="text-primary font-semibold hover:underline flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px]">wand</span> Fazer Quiz
+          </a>
+          <span class="text-border-subtle">|</span>
+          <a href="https://wa.me/5519981178104" target="_blank" class="text-secondary font-semibold hover:underline flex items-center gap-1">
+            <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Direto
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- 2. HERO SECTION (CLEAN & TYPOGRAPHIC - NO BIG IMAGE) -->
+    <!-- ========================================== -->
+    <section id="inicio" class="px-4 sm:px-6 py-8 sm:py-12">
+      <div class="bg-surface-card rounded-3xl p-6 sm:p-12 border border-border-subtle shadow-sm relative overflow-hidden">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Left Main Text -->
+          <div class="lg:col-span-7 flex flex-col gap-5 text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-light text-primary font-semibold text-xs uppercase tracking-wider w-fit">
+              <span class="material-symbols-outlined text-[16px]">workspace_premium</span>
+              <span>Atendimento Exclusivo & Visagismo</span>
+            </div>
+
+            <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-text-main leading-tight tracking-tight">
+              Realce Sua Beleza Natural com <span class="text-primary block font-extrabold">Arte, Técnica & Precisão</span>
+            </h1>
+
+            <p class="text-sm sm:text-base text-text-muted leading-relaxed font-normal">
+              Especialista em mechas iluminadas, corte visagista e reestruturação capilar. Um ambiente aconchegante e exclusivo projetado para valorizar a sua melhor versão.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-3 pt-2">
+              <button onclick="openBookingModal()" class="h-12 px-7 rounded-xl bg-secondary text-white font-semibold text-xs uppercase tracking-wider shadow-md hover:bg-secondary/90 active:scale-95 transition-all flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-[20px]">calendar_month</span>
+                Agendar Horário VIP
+              </button>
+              <a href="#quiz" class="h-12 px-6 rounded-xl bg-surface-muted hover:bg-border-subtle text-text-main font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all">
+                <span class="material-symbols-outlined text-primary text-[20px]">auto_awesome</span>
+                Descobrir Tratamento Ideal
+              </a>
+            </div>
+
+            <!-- Key Metrics Bar -->
+            <div class="grid grid-cols-3 gap-3 pt-6 border-t border-border-subtle text-center sm:text-left">
+              <div>
+                <span class="font-heading text-2xl font-bold text-primary block">3.500+</span>
+                <span class="text-xs text-text-muted">Clientes Atendidas</span>
+              </div>
+              <div>
+                <span class="font-heading text-2xl font-bold text-primary block">10+ Anos</span>
+                <span class="text-xs text-text-muted">Especialização</span>
+              </div>
+              <div>
+                <span class="font-heading text-2xl font-bold text-primary block">4.9 ★</span>
+                <span class="text-xs text-text-muted">Avaliação Google</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Feature Grid Box (Replaces Old Big Image) -->
+          <div class="lg:col-span-5 flex flex-col gap-3">
+            <div class="bg-surface-muted p-6 rounded-2xl border border-border-subtle space-y-4">
+              <h3 class="font-heading text-base font-bold text-text-main flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">verified</span>
+                Diferenciais do Estúdio
+              </h3>
+
+              <div class="space-y-3 text-xs text-text-muted">
+                <div class="p-3 bg-surface-card rounded-xl border border-border-subtle/60 flex items-start gap-3">
+                  <span class="material-symbols-outlined text-primary text-[20px] shrink-0">palette</span>
+                  <div>
+                    <strong class="block text-text-main">Visagismo Personalizado</strong>
+                    Análise completa do formato do rosto e tom de pele antes de qualquer química.
+                  </div>
+                </div>
+
+                <div class="p-3 bg-surface-card rounded-xl border border-border-subtle/60 flex items-start gap-3">
+                  <span class="material-symbols-outlined text-primary text-[20px] shrink-0">shield</span>
+                  <div>
+                    <strong class="block text-text-main">Proteção Capilar Plex</strong>
+                    Procedimentos de clareamento com preservação total da fibra capilar.
+                  </div>
+                </div>
+
+                <div class="p-3 bg-surface-card rounded-xl border border-border-subtle/60 flex items-start gap-3">
+                  <span class="material-symbols-outlined text-primary text-[20px] shrink-0">schedule</span>
+                  <div>
+                    <strong class="block text-text-main">Atendimento com Hora Marcada</strong>
+                    Respeito rigoroso ao seu tempo, sem filas de espera ou salas lotadas.
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-2">
+                <a href="#servicos" class="w-full py-2.5 rounded-xl bg-primary text-white font-semibold text-xs uppercase tracking-wider text-center block hover:bg-primary-hover transition-colors">
+                  Ver Menu de Serviços
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 3. SEÇÃO SOBRE A FRAN ANDRADE -->
+    <!-- ========================================== -->
+    <section id="sobre" class="px-4 sm:px-6 py-10">
+      <div class="bg-surface-card rounded-3xl p-6 sm:p-10 border border-border-subtle shadow-sm">
+        
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          
+          <!-- Minimal Badge Avatar -->
+          <div class="shrink-0 flex flex-col items-center">
+            <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-primary-light border-4 border-surface border-primary flex items-center justify-center text-primary font-heading font-extrabold text-4xl shadow-md">
+              FA
+            </div>
+            <span class="mt-3 px-3 py-1 rounded-full bg-surface-muted text-primary text-xs font-semibold">Master Visagista</span>
+          </div>
+
+          <!-- Bio & Credentials -->
+          <div class="flex-1 space-y-4 text-center md:text-left">
+            <div>
+              <span class="text-xs font-bold text-primary uppercase tracking-wider">A Mente Criativa por Trás do Salão</span>
+              <h2 class="font-heading text-2xl sm:text-3xl font-bold text-text-main mt-1">Fran Andrade</h2>
+              <p class="text-xs text-text-muted mt-0.5">Hair Stylist, Visagista & Especialista em Saúde Capilar</p>
+            </div>
+
+            <p class="text-xs sm:text-sm text-text-muted leading-relaxed">
+              Com mais de uma década de dedicação ao universo da beleza, Fran Andrade consolidou sua trajetória através de cursos internacionais de colorimetria e visagismo. Sua assinatura combina a delicadeza do <strong>Visagismo Integrativo</strong> com técnicas avançadas de descoloração segura e terapia capilar.
+            </p>
+
+            <div class="flex flex-wrap justify-center md:justify-start gap-2 pt-1">
+              <span class="px-3 py-1 rounded-full bg-surface-muted text-text-main text-xs font-medium border border-border-subtle flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px] text-primary">palette</span> Visagismo
+              </span>
+              <span class="px-3 py-1 rounded-full bg-surface-muted text-text-main text-xs font-medium border border-border-subtle flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px] text-primary">auto_awesome</span> Balayage
+              </span>
+              <span class="px-3 py-1 rounded-full bg-surface-muted text-text-main text-xs font-medium border border-border-subtle flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px] text-primary">spa</span> Terapia Capilar
+              </span>
+            </div>
+
+            <div class="pt-2">
+              <button onclick="openProfileModal()" class="px-5 py-2.5 rounded-xl bg-surface-muted hover:bg-border-subtle text-text-main text-xs font-semibold inline-flex items-center gap-2 transition-all">
+                <span class="material-symbols-outlined text-primary text-[18px]">history_edu</span>
+                Ver Formação & Certificações
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 4. SERVIÇOS EXCLUSIVOS (3D FLIPCARDS) -->
+    <!-- ========================================== -->
+    <section id="servicos" class="px-4 sm:px-6 py-10">
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <span class="text-xs font-bold text-primary uppercase tracking-widest block mb-1">Menu de Tratamentos</span>
+        <h2 class="font-heading text-2xl sm:text-3xl font-bold text-text-main mb-2">Serviços VIP</h2>
+        <p class="text-xs sm:text-sm text-text-muted">Passe o mouse ou toque no card para girar e ver os detalhes e opção de agendamento.</p>
+      </div>
+
+      <!-- FLIPCARDS GRID -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- CARD 1: MECHAS & BALAYAGE -->
+        <div class="flip-card h-[380px] perspective-1000 cursor-pointer" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner relative w-full h-full transform-style-3d rounded-2xl shadow-sm">
+            <!-- FRONT -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rounded-2xl border border-border-subtle bg-surface-card p-6 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined text-[28px]">flare</span>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full bg-surface-muted text-primary text-xs font-bold">R$ 380</span>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-secondary flex items-center gap-1 mb-1">
+                  <span class="material-symbols-outlined text-[14px]">star</span> Destaque VIP
+                </span>
+                <h3 class="font-heading text-xl font-bold text-text-main">Mechas & Balayage Iluminada</h3>
+                <p class="text-xs text-text-muted mt-2 leading-relaxed">Clareamento personalizado com técnica de raiz esfumada e proteção da estrutura do fio.</p>
+              </div>
+              <div class="pt-4 border-t border-border-subtle flex items-center justify-between text-xs text-primary font-semibold">
+                <span><i class="fa-regular fa-clock mr-1"></i> Aprox. 3h30</span>
+                <span class="text-text-muted text-[11px] flex items-center gap-1">Toque para girar <span class="material-symbols-outlined text-[14px]">sync</span></span>
+              </div>
+            </div>
+            <!-- BACK -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl border-2 border-primary bg-surface-card p-6 flex flex-col justify-between">
+              <div>
+                <h3 class="font-heading text-lg font-bold text-primary mb-2">Mechas & Balayage Iluminada</h3>
+                <p class="text-xs text-text-muted leading-relaxed mb-3">
+                  Inclui teste prévio de mecha, aplicação de protetor Plex, matização com pigmentos puros e tratamento de nutrição pós-descoloração.
+                </p>
+                <ul class="text-xs text-text-muted space-y-1.5 mb-4">
+                  <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Proteção contra quebra</li>
+                  <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Transição suave de cor</li>
+                  <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Indicado p/ todos os tipos de cabelo</li>
+                </ul>
+              </div>
+              <button onclick="event.stopPropagation(); quickBookService('Mechas & Balayage Iluminada')" class="w-full py-2.5 rounded-xl bg-primary text-white font-semibold text-xs uppercase tracking-wider hover:bg-primary-hover transition-all">
+                Agendar Este Serviço
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: CORTE VISAGISTA -->
+        <div class="flip-card h-[380px] perspective-1000 cursor-pointer" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner relative w-full h-full transform-style-3d rounded-2xl shadow-sm">
+            <!-- FRONT -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rounded-2xl border border-border-subtle bg-surface-card p-6 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined text-[28px]">content_cut</span>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full bg-surface-muted text-primary text-xs font-bold">R$ 140</span>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-primary flex items-center gap-1 mb-1">
+                  <span class="material-symbols-outlined text-[14px]">palette</span> Signature Cut
+                </span>
+                <h3 class="font-heading text-xl font-bold text-text-main">Corte Visagista Personalizado</h3>
+                <p class="text-xs text-text-muted mt-2 leading-relaxed">Corte desenhado para harmonizar traços faciais, formato de rosto e praticidade no dia a dia.</p>
+              </div>
+              <div class="pt-4 border-t border-border-subtle flex items-center justify-between text-xs text-primary font-semibold">
+                <span><i class="fa-regular fa-clock mr-1"></i> Aprox. 1h00</span>
+                <span class="text-text-muted text-[11px] flex items-center gap-1">Toque para girar <span class="material-symbols-outlined text-[14px]">sync</span></span>
+              </div>
+            </div>
+            <!-- BACK -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl border-2 border-primary bg-surface-card p-6 flex flex-col justify-between">
+              <div>
+                <h3 class="font-heading text-lg font-bold text-primary mb-2">Corte Visagista Personalizado</h3>
+                <p class="text-xs text-text-muted leading-relaxed mb-3">
+                  Consultoria de imagem e estilo antes da tesoura, lavagem relaxante com massagem capilar e escova finalizadora modelada.
+                </p>
+                <ul class="text-xs text-text-muted space-y-1.5 mb-4">
+                  <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Análise do formato do rosto</li>
+                  <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Respeito ao caimento natural</li>
+                  <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Dicas de styling prático</li>
+                </ul>
+              </div>
+              <button onclick="event.stopPropagation(); quickBookService('Corte Visagista Personalizado')" class="w-full py-2.5 rounded-xl bg-primary text-white font-semibold text-xs uppercase tracking-wider hover:bg-primary-hover transition-all">
+                Agendar Este Serviço
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: CRONOGRAMA & TERAPIA -->
+        <div class="flip-card h-[380px] perspective-1000 cursor-pointer" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner relative w-full h-full transform-style-3d rounded-2xl shadow-sm">
+            <!-- FRONT -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rounded-2xl border border-border-subtle bg-surface-card p-6 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined text-[28px]">spa</span>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full bg-surface-muted text-primary text-xs font-bold">R$ 190</span>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-1 mb-1">
+                  <span class="material-symbols-outlined text-[14px]">health_and_safety</span> Saúde Capilar
+                </span>
+                <h3 class="font-heading text-xl font-bold text-text-main">Cronograma & Terapia Capilar</h3>
+                <p class="text-xs text-text-muted mt-2 leading-relaxed">Tratamento intensivo de reposição lipídica e reconstrução para fios danificados por química.</p>
+              </div>
+              <div class="pt-4 border-t border-border-subtle flex items-center justify-between text-xs text-primary font-semibold">
+                <span><i class="fa-regular fa-clock mr-1"></i> Aprox. 1h15</span>
+                <span class="text-text-muted text-[11px] flex items-center gap-1">Toque para girar <span class="material-symbols-outlined text-[14px]">sync</span></span>
+              </div>
+            </div>
+            <!-- BACK -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl border-2 border-primary bg-surface-card p-6 flex flex-col justify-between">
+              <div>
+                <h3 class="font-heading text-lg font-bold text-primary mb-2">Cronograma & Terapia Capilar</h3>
+                <p class="text-xs text-text-muted leading-relaxed mb-3">
+                  Infusão profunda de aminoácidos, queratina e óleos essenciais para devolver a massa capilar e o brilho perdido.
+                </p>
+                <ul class="text-xs text-text-muted space-y-1.5 mb-4">
+                  <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Selamento de cutículas</li>
+                  <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Redução visível do frizz</li>
+                  <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Escova modelada inclusa</li>
+                </ul>
+              </div>
+              <button onclick="event.stopPropagation(); quickBookService('Cronograma & Terapia Capilar')" class="w-full py-2.5 rounded-xl bg-primary text-white font-semibold text-xs uppercase tracking-wider hover:bg-primary-hover transition-all">
+                Agendar Este Serviço
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4: ESCOVA & STYLING -->
+        <div class="flip-card h-[380px] perspective-1000 cursor-pointer" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner relative w-full h-full transform-style-3d rounded-2xl shadow-sm">
+            <!-- FRONT -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rounded-2xl border border-border-subtle bg-surface-card p-6 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined text-[28px]">brush</span>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full bg-surface-muted text-primary text-xs font-bold">R$ 90</span>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-primary flex items-center gap-1 mb-1">
+                  <span class="material-symbols-outlined text-[14px]">electric_bolt</span> Express Beauty
+                </span>
+                <h3 class="font-heading text-xl font-bold text-text-main">Escova Modelada & Styling</h3>
+                <p class="text-xs text-text-muted mt-2 leading-relaxed">Finalização com movimento leve, ondas glamour ou liso espelhado de alta durabilidade.</p>
+              </div>
+              <div class="pt-4 border-t border-border-subtle flex items-center justify-between text-xs text-primary font-semibold">
+                <span><i class="fa-regular fa-clock mr-1"></i> Aprox. 45min</span>
+                <span class="text-text-muted text-[11px] flex items-center gap-1">Toque para girar <span class="material-symbols-outlined text-[14px]">sync</span></span>
+              </div>
+            </div>
+            <!-- BACK -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl border-2 border-primary bg-surface-card p-6 flex flex-col justify-between">
+              <div>
+                <h3 class="font-heading text-lg font-bold text-primary mb-2">Escova Modelada & Styling</h3>
+                <p class="text-xs text-text-muted leading-relaxed mb-3">
+                  Lavagem com shampoo nutritivo, proteção térmica avançada e modelagem duradoura sem enrijecer o fio.
+                </p>
+                <ul class="text-xs text-text-muted space-y-1.5 mb-4">
+                  <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Proteção contra umidade</li>
+                  <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Opção de ondas leves ou lisas</li>
+                </ul>
+              </div>
+              <button onclick="event.stopPropagation(); quickBookService('Escova Modelada & Styling')" class="w-full py-2.5 rounded-xl bg-primary text-white font-semibold text-xs uppercase tracking-wider hover:bg-primary-hover transition-all">
+                Agendar Este Serviço
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5: GLOSSING & MATIZAÇÃO -->
+        <div class="flip-card h-[380px] perspective-1000 cursor-pointer" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner relative w-full h-full transform-style-3d rounded-2xl shadow-sm">
+            <!-- FRONT -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rounded-2xl border border-border-subtle bg-surface-card p-6 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined text-[28px]">water_drop</span>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full bg-surface-muted text-primary text-xs font-bold">R$ 160</span>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-secondary flex items-center gap-1 mb-1">
+                  <span class="material-symbols-outlined text-[14px]">auto_fix_high</span> Color Refresh
+                </span>
+                <h3 class="font-heading text-xl font-bold text-text-main">Glossing & Matização Express</h3>
+                <p class="text-xs text-text-muted mt-2 leading-relaxed">Revitalização da cor para loiros e morenas com tonalizantes sem amônia e brilho intenso.</p>
+              </div>
+              <div class="pt-4 border-t border-border-subtle flex items-center justify-between text-xs text-primary font-semibold">
+                <span><i class="fa-regular fa-clock mr-1"></i> Aprox. 1h00</span>
+                <span class="text-text-muted text-[11px] flex items-center gap-1">Toque para girar <span class="material-symbols-outlined text-[14px]">sync</span></span>
+              </div>
+            </div>
+            <!-- BACK -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl border-2 border-primary bg-surface-card p-6 flex flex-col justify-between">
+              <div>
+                <h3 class="font-heading text-lg font-bold text-primary mb-2">Glossing & Matização Express</h3>
+                <p class="text-xs text-text-muted leading-relaxed mb-3">
+                  Neutraliza reflexos amarelados ou alaranjados, reativando a tonalidade com brilho espelhado sem agredir a fibra.
+                </p>
+                <ul class="text-xs text-text-muted space-y-1.5 mb-4">
+                  <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Fórmula sem amônia</li>
+                  <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Devolve o reflexo luminoso</li>
+                </ul>
+              </div>
+              <button onclick="event.stopPropagation(); quickBookService('Glossing & Matização Express')" class="w-full py-2.5 rounded-xl bg-primary text-white font-semibold text-xs uppercase tracking-wider hover:bg-primary-hover transition-all">
+                Agendar Este Serviço
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 6: PENTEADOS & NOIVAS VIP -->
+        <div class="flip-card h-[380px] perspective-1000 cursor-pointer" onclick="this.classList.toggle('flipped')">
+          <div class="flip-card-inner relative w-full h-full transform-style-3d rounded-2xl shadow-sm">
+            <!-- FRONT -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rounded-2xl border border-border-subtle bg-surface-card p-6 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined text-[28px]">diamond</span>
+                  </div>
+                  <span class="px-2.5 py-1 rounded-full bg-surface-muted text-primary text-xs font-bold">R$ 350</span>
+                </div>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-primary flex items-center gap-1 mb-1">
+                  <span class="material-symbols-outlined text-[14px]">celebration</span> Eventos
+                </span>
+                <h3 class="font-heading text-xl font-bold text-text-main">Penteados Social & Noivas VIP</h3>
+                <p class="text-xs text-text-muted mt-2 leading-relaxed">Produção técnica sofisticada para casamentos, formaturas e eventos especiais.</p>
+              </div>
+              <div class="pt-4 border-t border-border-subtle flex items-center justify-between text-xs text-primary font-semibold">
+                <span><i class="fa-regular fa-clock mr-1"></i> Aprox. 2h00</span>
+                <span class="text-text-muted text-[11px] flex items-center gap-1">Toque para girar <span class="material-symbols-outlined text-[14px]">sync</span></span>
+              </div>
+            </div>
+            <!-- BACK -->
+            <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl border-2 border-primary bg-surface-card p-6 flex flex-col justify-between">
+              <div>
+                <h3 class="font-heading text-lg font-bold text-primary mb-2">Penteados Social & Noivas VIP</h3>
+                <p class="text-xs text-text-muted leading-relaxed mb-3">
+                  Preparação completa de textura capilar, fixação de longa duração e colocação de adereços ou veus.
+                </p>
+                <ul class="text-xs text-text-muted space-y-1.5 mb-4">
+                  <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Teste prévio opcional</li>
+                  <li class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[16px]">check_circle</span> Sala VIP sob agendamento</li>
+                </ul>
+              </div>
+              <button onclick="event.stopPropagation(); quickBookService('Penteados Social & Noivas VIP')" class="w-full py-2.5 rounded-xl bg-primary text-white font-semibold text-xs uppercase tracking-wider hover:bg-primary-hover transition-all">
+                Agendar Este Serviço
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 5. QUIZ CAPILAR (DIAGNÓSTICO EM 3 ETAPAS) -->
+    <!-- ========================================== -->
+    <section id="quiz" class="px-4 sm:px-6 py-10">
+      <div class="bg-surface-card rounded-3xl p-6 sm:p-10 border border-border-subtle shadow-sm max-w-3xl mx-auto">
+        
+        <div class="text-center max-w-md mx-auto mb-6">
+          <span class="text-xs font-bold text-primary uppercase tracking-widest block mb-1">Consultoria Digital</span>
+          <h2 class="font-heading text-2xl font-bold text-text-main">Quiz de Diagnóstico Capilar</h2>
+          <p class="text-xs text-text-muted mt-1">Responda a 3 perguntas rápidas para receber a indicação do tratamento mais adequado para seu cabelo.</p>
+        </div>
+
+        <div id="quiz-container" class="space-y-6">
+          
+          <!-- Step 1 -->
+          <div class="quiz-step" data-step="1">
+            <span class="text-[11px] font-bold text-primary uppercase tracking-wider block mb-2">Etapa 1 de 3: Estado Atual do Cabelo</span>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <button onclick="selectQuizOption(1, 'saude', 'Saudável / Natural', this)" class="quiz-opt-btn p-3 rounded-xl border border-border-subtle hover:border-primary text-xs text-left transition-all">
+                <strong class="block text-text-main">Natural / Sem Química</strong>
+                <span class="text-[11px] text-text-muted">Fios saudáveis sem descoloração recente.</span>
+              </button>
+              <button onclick="selectQuizOption(1, 'saude', 'Ressecado / Opaco', this)" class="quiz-opt-btn p-3 rounded-xl border border-border-subtle hover:border-primary text-xs text-left transition-all">
+                <strong class="block text-text-main">Ressecado / Com Frizz</strong>
+                <span class="text-[11px] text-text-muted">Necessita de hidratação e nutrição.</span>
+              </button>
+              <button onclick="selectQuizOption(1, 'saude', 'Danificado por Química', this)" class="quiz-opt-btn p-3 rounded-xl border border-border-subtle hover:border-primary text-xs text-left transition-all">
+                <strong class="block text-text-main">Descolorido / Frágil</strong>
+                <span class="text-[11px] text-text-muted">Passou por luzes ou alisamentos.</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="quiz-step" data-step="2">
+            <span class="text-[11px] font-bold text-primary uppercase tracking-wider block mb-2">Etapa 2 de 3: Comprimento dos Fios</span>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <button onclick="selectQuizOption(2, 'comprimento', 'Curto / Médio', this)" class="quiz-opt-btn p-3 rounded-xl border border-border-subtle hover:border-primary text-xs text-left transition-all">
+                <strong class="block text-text-main">Curto ou Chanel</strong>
+                <span class="text-[11px] text-text-muted">Até a altura dos ombros.</span>
+              </button>
+              <button onclick="selectQuizOption(2, 'comprimento', 'Médio / Longo', this)" class="quiz-opt-btn p-3 rounded-xl border border-border-subtle hover:border-primary text-xs text-left transition-all">
+                <strong class="block text-text-main">Abaixo dos Ombros</strong>
+                <span class="text-[11px] text-text-muted">Comprimento médio regular.</span>
+              </button>
+              <button onclick="selectQuizOption(2, 'comprimento', 'Muito Longo', this)" class="quiz-opt-btn p-3 rounded-xl border border-border-subtle hover:border-primary text-xs text-left transition-all">
+                <strong class="block text-text-main">Longo na Cintura</strong>
+                <span class="text-[11px] text-text-muted">Fios longos e volumosos.</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="quiz-step" data-step="3">
+            <span class="text-[11px] font-bold text-primary uppercase tracking-wider block mb-2">Etapa 3 de 3: Seu Objetivo Principal</span>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <button onclick="selectQuizOption(3, 'objetivo', 'Iluminar com Mechas', this)" class="quiz-opt-btn p-3 rounded-xl border border-border-subtle hover:border-primary text-xs text-left transition-all">
+                <strong class="block text-text-main">Iluminar / Mechas</strong>
+                <span class="text-[11px] text-text-muted">Clarear o tom com sofisticação.</span>
+              </button>
+              <button onclick="selectQuizOption(3, 'objetivo', 'Renovar o Corte', this)" class="quiz-opt-btn p-3 rounded-xl border border-border-subtle hover:border-primary text-xs text-left transition-all">
+                <strong class="block text-text-main">Corte & Estilo</strong>
+                <span class="text-[11px] text-text-muted">Harmonizar com o formato do rosto.</span>
+              </button>
+              <button onclick="selectQuizOption(3, 'objetivo', 'Recuperar Saúde Capilar', this)" class="quiz-opt-btn p-3 rounded-xl border border-border-subtle hover:border-primary text-xs text-left transition-all">
+                <strong class="block text-text-main">Tratamento & Terapia</strong>
+                <span class="text-[11px] text-text-muted">Restaurar massa e brilho.</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="text-center pt-2">
+            <button onclick="calculateQuizResult()" class="px-7 py-3 rounded-xl bg-primary text-white font-semibold text-xs uppercase tracking-wider shadow-sm hover:bg-primary-hover transition-all">
+              Gerar Recomendação Personalizada
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Quiz Result Box -->
+        <div id="quiz-result" class="hidden text-center space-y-4 pt-2">
+          <div class="w-12 h-12 rounded-full bg-primary-light text-primary flex items-center justify-center mx-auto text-xl font-bold">
+            <span class="material-symbols-outlined">auto_awesome</span>
+          </div>
+          <div>
+            <span class="text-xs font-bold text-primary uppercase tracking-wider block">Diagnóstico Recomendado</span>
+            <h3 id="quiz-result-title" class="font-heading text-2xl font-bold text-text-main mt-1">Mechas & Balayage Iluminada</h3>
+          </div>
+          <p id="quiz-result-desc" class="text-xs text-text-muted max-w-md mx-auto leading-relaxed">
+            Com base nas suas respostas, indicamos um procedimento com protocolo de proteção Plex e matização personalizada para garantir brilho e saúde total.
+          </p>
+          <div class="pt-2">
+            <button onclick="bookQuizRecommendation()" class="px-6 py-3 rounded-xl bg-secondary text-white font-semibold text-xs uppercase tracking-wider shadow-sm">
+              Agendar Serviço Recomendado
+            </button>
+            <button onclick="resetQuiz()" class="block text-xs text-text-muted underline hover:text-text-main mx-auto mt-3">Refazer Quiz</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 6. CALCULADORA DE COMBOS -->
+    <!-- ========================================== -->
+    <section id="combo" class="px-4 sm:px-6 py-10">
+      <div class="text-center max-w-xl mx-auto mb-8">
+        <span class="text-xs font-bold text-primary uppercase tracking-widest block mb-1">Personalize Seu Pacote</span>
+        <h2 class="font-heading text-2xl sm:text-3xl font-bold text-text-main mb-2">Calculadora de Combos</h2>
+        <p class="text-xs sm:text-sm text-text-muted">Selecione 3 ou mais procedimentos para ganhar 10% de desconto automático no pacote completo.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+        
+        <!-- Checklist Column -->
+        <div class="lg:col-span-2 space-y-3">
+          
+          <label class="p-4 rounded-2xl bg-surface-card border border-border-subtle hover:border-primary cursor-pointer transition-all flex items-start gap-3">
+            <input type="checkbox" value="380" data-time="210" data-name="Mechas & Balayage" onchange="updateComboTotal()" class="combo-cb mt-1 rounded accent-primary">
+            <div class="flex-1">
+              <div class="flex justify-between items-center">
+                <span class="font-heading text-sm font-bold text-text-main">Mechas & Balayage Iluminada</span>
+                <span class="font-bold text-xs text-primary">R$ 380</span>
+              </div>
+              <span class="text-xs text-text-muted block mt-0.5">Proteção Plex e Matização • Aprox. 3h30</span>
+            </div>
+          </label>
+
+          <label class="p-4 rounded-2xl bg-surface-card border border-border-subtle hover:border-primary cursor-pointer transition-all flex items-start gap-3">
+            <input type="checkbox" value="140" data-time="60" data-name="Corte Visagista" onchange="updateComboTotal()" class="combo-cb mt-1 rounded accent-primary">
+            <div class="flex-1">
+              <div class="flex justify-between items-center">
+                <span class="font-heading text-sm font-bold text-text-main">Corte Visagista Personalizado</span>
+                <span class="font-bold text-xs text-primary">R$ 140</span>
+              </div>
+              <span class="text-xs text-text-muted block mt-0.5">Consultoria de Imagem e Escova • Aprox. 1h00</span>
+            </div>
+          </label>
+
+          <label class="p-4 rounded-2xl bg-surface-card border border-border-subtle hover:border-primary cursor-pointer transition-all flex items-start gap-3">
+            <input type="checkbox" value="190" data-time="75" data-name="Terapia Capilar" onchange="updateComboTotal()" class="combo-cb mt-1 rounded accent-primary">
+            <div class="flex-1">
+              <div class="flex justify-between items-center">
+                <span class="font-heading text-sm font-bold text-text-main">Cronograma & Terapia Capilar</span>
+                <span class="font-bold text-xs text-primary">R$ 190</span>
+              </div>
+              <span class="text-xs text-text-muted block mt-0.5">Reposição Lipídica e Reconstrução • Aprox. 1h15</span>
+            </div>
+          </label>
+
+          <label class="p-4 rounded-2xl bg-surface-card border border-border-subtle hover:border-primary cursor-pointer transition-all flex items-start gap-3">
+            <input type="checkbox" value="90" data-time="45" data-name="Escova Modelada" onchange="updateComboTotal()" class="combo-cb mt-1 rounded accent-primary">
+            <div class="flex-1">
+              <div class="flex justify-between items-center">
+                <span class="font-heading text-sm font-bold text-text-main">Escova Modelada & Styling</span>
+                <span class="font-bold text-xs text-primary">R$ 90</span>
+              </div>
+              <span class="text-xs text-text-muted block mt-0.5">Ondas Glamour ou Liso Perfeito • Aprox. 45min</span>
+            </div>
+          </label>
+
+          <label class="p-4 rounded-2xl bg-surface-card border border-border-subtle hover:border-primary cursor-pointer transition-all flex items-start gap-3">
+            <input type="checkbox" value="160" data-time="60" data-name="Glossing Express" onchange="updateComboTotal()" class="combo-cb mt-1 rounded accent-primary">
+            <div class="flex-1">
+              <div class="flex justify-between items-center">
+                <span class="font-heading text-sm font-bold text-text-main">Glossing & Matização Express</span>
+                <span class="font-bold text-xs text-primary">R$ 160</span>
+              </div>
+              <span class="text-xs text-text-muted block mt-0.5">Banho de Brilho sem Amônia • Aprox. 1h00</span>
+            </div>
+          </label>
+
+        </div>
+
+        <!-- Live Total Card -->
+        <div class="bg-surface-card p-6 rounded-2xl border border-border-subtle shadow-sm sticky top-24">
+          <h3 class="font-heading text-base font-bold text-text-main pb-3 border-b border-border-subtle mb-4">Resumo do Pacote</h3>
+
+          <div id="combo-selected-list" class="space-y-2 text-xs text-text-muted mb-6 min-h-[60px]">
+            <p class="italic">Nenhum serviço selecionado. Marque as opções ao lado.</p>
+          </div>
+
+          <div class="space-y-2 pt-3 border-t border-border-subtle text-xs">
+            <div class="flex justify-between text-text-muted">
+              <span>Tempo Estimado:</span>
+              <strong id="combo-time" class="text-text-main">0 min</strong>
+            </div>
+            <div id="combo-discount-row" class="flex justify-between text-emerald-700 font-bold hidden">
+              <span>Desconto Combo (10%):</span>
+              <span id="combo-discount-val">- R$ 0</span>
+            </div>
+            <div class="flex justify-between items-baseline pt-2">
+              <span class="font-bold text-text-main uppercase">Valor Total:</span>
+              <span id="combo-total-price" class="font-heading text-2xl font-extrabold text-primary">R$ 0</span>
+            </div>
+          </div>
+
+          <button id="combo-book-btn" onclick="bookCustomCombo()" disabled class="w-full mt-5 py-3 rounded-xl bg-primary disabled:bg-surface-muted disabled:text-text-muted text-white font-semibold text-xs uppercase tracking-wider transition-all shadow-sm">
+            Reservar Combo via WhatsApp
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 7. LOCALIZAÇÃO E CONTATO COM FORMULÁRIO -->
+    <!-- ========================================== -->
+    <section id="contato" class="px-4 sm:px-6 py-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+        
+        <!-- Info Box -->
+        <div class="bg-surface-card p-6 sm:p-8 rounded-3xl border border-border-subtle shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-bold text-primary uppercase tracking-widest block mb-1">Atendimento</span>
+            <h3 class="font-heading text-xl font-bold text-text-main mb-4">Visite Nosso Estúdio</h3>
+
+            <div class="space-y-4 text-xs sm:text-sm text-text-muted">
+              <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">pin_drop</span>
+                <div>
+                  <strong class="block text-text-main font-semibold">Endereço:</strong>
+                  <span>Av. Três, 341-405 - Jardim Sao Joao, Campinas - SP, 13053-100</span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-[20px] shrink-0">schedule</span>
+                <div>
+                  <strong class="block text-text-main font-semibold">Horário de Funcionamento:</strong>
+                  <span>Terça a Sábado: 08:00 às 20:00</span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-[20px] shrink-0">call</span>
+                <div>
+                  <strong class="block text-text-main font-semibold">WhatsApp Direto:</strong>
+                  <span>(19) 98117-8104</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://share.google/eO9wqoktO48nuXVKN" target="_blank" class="mt-6 w-full py-3 rounded-xl bg-surface-muted hover:bg-border-subtle text-text-main font-semibold text-xs uppercase tracking-wider text-center block transition-all flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-[18px]">navigation</span> Abrir Rota no GPS
+          </a>
+        </div>
+
+        <!-- Quick Form -->
+        <div class="bg-surface-card p-6 sm:p-8 rounded-3xl border border-border-subtle shadow-sm">
+          <h3 class="font-heading text-lg font-bold text-text-main mb-1">Pré-Agendamento Rápido</h3>
+          <p class="text-xs text-text-muted mb-4">Preencha os campos abaixo para enviar o pedido diretamente para o WhatsApp do salão.</p>
+
+          <form onsubmit="handleQuickFormSubmit(event)" class="space-y-3 text-xs">
+            <div>
+              <label class="block text-text-main font-semibold mb-1">Seu Nome</label>
+              <input type="text" id="form-name" placeholder="Ex: Carolina Silveira" required class="w-full h-11 px-3.5 rounded-xl bg-surface-muted border border-border-subtle text-text-main focus:outline-none focus:border-primary">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-text-main font-semibold mb-1">WhatsApp</label>
+                <input type="tel" id="form-phone" placeholder="(19) 99999-9999" required class="w-full h-11 px-3.5 rounded-xl bg-surface-muted border border-border-subtle text-text-main focus:outline-none focus:border-primary">
+              </div>
+              <div>
+                <label class="block text-text-main font-semibold mb-1">Serviço Desejado</label>
+                <select id="form-service" class="w-full h-11 px-3 rounded-xl bg-surface-muted border border-border-subtle text-text-main focus:outline-none focus:border-primary">
+                  <option value="Mechas & Balayage Iluminada">Mechas & Balayage</option>
+                  <option value="Corte Visagista Personalizado">Corte Visagista</option>
+                  <option value="Cronograma & Terapia Capilar">Terapia Capilar</option>
+                  <option value="Escova Modelada & Styling">Escova Modelada</option>
+                  <option value="Outro Serviço">Outro Serviço</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="w-full h-11 mt-2 rounded-xl bg-secondary hover:bg-secondary/90 text-white font-semibold text-xs uppercase tracking-wider shadow-sm transition-all flex items-center justify-center gap-2">
+              <i class="fa-brands fa-whatsapp text-sm"></i> Enviar Pré-Agendamento
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="bg-surface-card border-t border-border-subtle py-8 px-4 sm:px-6 text-xs text-text-muted">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-xs">FA</div>
+        <span class="font-heading font-bold text-text-main">Fran Andrade • Hair Stylist & Visagismo</span>
+      </div>
+      <p>&copy; 2026 Fran Andrade. Todos os direitos reservados. Av. Três, 341 - Campinas/SP.</p>
+      <button onclick="openCookieSettings()" class="underline hover:text-primary">Preferências de Privacidade</button>
+    </div>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- MODAL: TRAJETÓRIA & CERTIFICAÇÕES -->
+  <!-- ========================================== -->
+  <div id="profile-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+    <div class="bg-surface-card max-w-lg w-full rounded-3xl p-6 sm:p-8 shadow-2xl relative border border-border-subtle">
+      <button onclick="closeProfileModal()" class="absolute top-4 right-4 text-text-muted hover:text-text-main p-1">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+
+      <div class="flex items-center gap-3 pb-4 border-b border-border-subtle mb-4">
+        <div class="w-10 h-10 rounded-xl bg-primary-light flex items-center justify-center text-primary">
+          <span class="material-symbols-outlined">school</span>
+        </div>
+        <div>
+          <h3 class="font-heading text-lg font-bold text-text-main">Formação & Credenciais</h3>
+          <p class="text-xs text-text-muted">Fran Andrade • Especializações Master</p>
+        </div>
+      </div>
+
+      <div class="space-y-3 max-h-[60vh] overflow-y-auto pr-1 text-xs text-text-muted">
+        <div class="p-3.5 rounded-2xl bg-surface-muted border border-border-subtle/60">
+          <h4 class="font-bold text-text-main text-sm">Master Visagismo Integrativo</h4>
+          <span class="text-primary font-medium block">Academia Internacional de Visagismo</span>
+          <p class="mt-1">Análise do formato facial, temperamento estético e técnicas de harmonização corte-cor.</p>
+        </div>
+
+        <div class="p-3.5 rounded-2xl bg-surface-muted border border-border-subtle/60">
+          <h4 class="font-bold text-text-main text-sm">Colorimetria Científica & Descoloração Segura</h4>
+          <span class="text-primary font-medium block">L'Oréal Professional & Wella Academy</span>
+          <p class="mt-1">Neutralização de fundo de clareamento e protocolos com Plex para manter a densidade do fio.</p>
+        </div>
+
+        <div class="p-3.5 rounded-2xl bg-surface-muted border border-border-subtle/60">
+          <h4 class="font-bold text-text-main text-sm">Tricologia & Terapia Capilar Aplicada</h4>
+          <span class="text-primary font-medium block">Instituto de Saúde Capilar</span>
+          <p class="mt-1">Tratamento de couro cabeludo, restauração lipídica e prevenção de quebra capilar pós-química.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL DE AGENDAMENTO -->
+  <!-- ========================================== -->
+  <div id="booking-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+    <div class="bg-surface-card w-full max-w-lg rounded-3xl p-6 sm:p-8 shadow-2xl relative border border-border-subtle">
+      <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-text-muted hover:text-text-main p-1">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+
+      <span class="text-xs font-bold text-primary uppercase tracking-widest block mb-1">Reserva Online</span>
+      <h3 class="font-heading text-xl font-bold text-text-main mb-4">Agendamento de Horário VIP</h3>
+
+      <form onsubmit="handleModalBookingSubmit(event)" class="space-y-3 text-xs">
+        <div>
+          <label class="block text-text-main font-semibold mb-1">Procedimento Pretendido</label>
+          <select id="modal-service" required class="w-full h-11 px-3 rounded-xl bg-surface-muted border border-border-subtle text-text-main focus:outline-none focus:border-primary">
+            <option value="Mechas & Balayage Iluminada">Mechas & Balayage Iluminada - R$ 380</option>
+            <option value="Corte Visagista Personalizado">Corte Visagista Personalizado - R$ 140</option>
+            <option value="Cronograma & Terapia Capilar">Cronograma & Terapia Capilar - R$ 190</option>
+            <option value="Escova Modelada & Styling">Escova Modelada & Styling - R$ 90</option>
+            <option value="Glossing & Matização Express">Glossing & Matização Express - R$ 160</option>
+            <option value="Penteados Social & Noivas VIP">Penteados Social & Noivas VIP - R$ 350</option>
+            <option value="Combo Personalizado VIP">Combo Personalizado VIP</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-text-main font-semibold mb-1">Data Pretendida</label>
+            <input type="date" id="modal-date" required class="w-full h-11 px-3 rounded-xl bg-surface-muted border border-border-subtle text-text-main focus:outline-none focus:border-primary">
+          </div>
+          <div>
+            <label class="block text-text-main font-semibold mb-1">Horário Preferencial</label>
+            <select id="modal-time" required class="w-full h-11 px-3 rounded-xl bg-surface-muted border border-border-subtle text-text-main focus:outline-none focus:border-primary">
+              <option value="09:00">09:00</option>
+              <option value="11:00">11:00</option>
+              <option value="14:00">14:00</option>
+              <option value="16:00">16:00</option>
+              <option value="18:00">18:00</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-text-main font-semibold mb-1">Seu Nome</label>
+            <input type="text" id="modal-name" placeholder="Ex: Ana Maria" required class="w-full h-11 px-3.5 rounded-xl bg-surface-muted border border-border-subtle text-text-main focus:outline-none focus:border-primary">
+          </div>
+          <div>
+            <label class="block text-text-main font-semibold mb-1">WhatsApp</label>
+            <input type="tel" id="modal-phone" placeholder="(19) 99999-9999" required class="w-full h-11 px-3.5 rounded-xl bg-surface-muted border border-border-subtle text-text-main focus:outline-none focus:border-primary">
+          </div>
+        </div>
+
+        <button type="submit" class="w-full h-11 mt-2 rounded-xl bg-secondary hover:bg-secondary/90 text-white font-semibold text-xs uppercase tracking-wider shadow-sm transition-all flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-sm"></i> Confirmar via WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 8. CHATBOT FLUTUANTE ("ASSISTENTE FRAN ANDRADE") -->
+  <!-- ========================================== -->
+  <div id="chatbot-widget" class="fixed bottom-6 right-6 z-50">
+    
+    <!-- Floating Trigger Button -->
+    <button onclick="toggleChatbot()" aria-label="Abrir Chatbot" class="w-14 h-14 rounded-full bg-primary text-white shadow-xl flex items-center justify-center hover:bg-primary-hover transition-transform hover:scale-105 active:scale-95 relative border-2 border-surface">
+      <span class="material-symbols-outlined text-2xl">chat</span>
+      <!-- Notification ping -->
+      <span class="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-surface"></span>
+    </button>
+
+    <!-- Chat Window Container -->
+    <div id="chatbot-window" class="hidden fixed bottom-24 right-4 sm:right-6 w-[340px] sm:w-[370px] h-[480px] bg-surface-card rounded-3xl border border-border-subtle shadow-2xl flex flex-col overflow-hidden animate-slide-up">
+      
+      <!-- Chat Header -->
+      <div class="p-4 bg-surface-muted border-b border-border-subtle flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center font-bold text-xs">FA</div>
+          <div>
+            <h4 class="font-heading text-xs font-bold text-text-main">Assistente Fran Andrade</h4>
+            <span class="text-[10px] text-emerald-700 font-semibold flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Online
+            </span>
+          </div>
+        </div>
+        <button onclick="toggleChatbot()" class="text-text-muted hover:text-text-main p-1">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <!-- Messages Area -->
+      <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 custom-scrollbar text-xs">
+        
+        <!-- Welcome Message -->
+        <div class="flex items-start gap-2">
+          <div class="w-6 h-6 rounded-md bg-primary text-white flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">FA</div>
+          <div class="bg-surface-muted p-3 rounded-2xl rounded-tl-none border border-border-subtle/50 text-text-main leading-relaxed">
+            Olá! Seja bem-vinda ao estúdio <strong>Fran Andrade</strong>. Como posso ajudar você hoje?
+          </div>
+        </div>
+
+        <!-- Quick Reply Chips Container -->
+        <div id="chat-quick-reply-chips" class="pt-1 flex flex-wrap gap-1.5">
+          <button onclick="sendQuickChatMessage('Valores dos Serviços')" class="px-2.5 py-1.5 rounded-full bg-surface-muted hover:bg-primary-light hover:text-primary text-text-main text-[11px] font-medium border border-border-subtle transition-colors">
+            💰 Valores dos Serviços
+          </button>
+          <button onclick="sendQuickChatMessage('Horários & Endereço')" class="px-2.5 py-1.5 rounded-full bg-surface-muted hover:bg-primary-light hover:text-primary text-text-main text-[11px] font-medium border border-border-subtle transition-colors">
+            📍 Horários & Endereço
+          </button>
+          <button onclick="sendQuickChatMessage('Agendar Horário')" class="px-2.5 py-1.5 rounded-full bg-surface-muted hover:bg-primary-light hover:text-primary text-text-main text-[11px] font-medium border border-border-subtle transition-colors">
+            📅 Agendar Horário
+          </button>
+          <button onclick="sendQuickChatMessage('Cuidados Cabelo')" class="px-2.5 py-1.5 rounded-full bg-surface-muted hover:bg-primary-light hover:text-primary text-text-main text-[11px] font-medium border border-border-subtle transition-colors">
+            💆‍♀️ Cuidados Cabelo
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Chat Input Area -->
+      <form onsubmit="handleChatFormSubmit(event)" class="p-3 bg-surface-muted border-t border-border-subtle flex gap-2">
+        <input type="text" id="chat-input" placeholder="Digite sua mensagem..." required class="flex-1 bg-surface-card border border-border-subtle rounded-xl px-3 py-2 text-xs text-text-main focus:outline-none focus:border-primary">
+        <button type="submit" class="w-9 h-9 rounded-xl bg-primary text-white flex items-center justify-center shrink-0 hover:bg-primary-hover transition-colors">
+          <span class="material-symbols-outlined text-[18px]">send</span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- LGPD COOKIE BANNER -->
+  <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-50 bg-surface-card border border-border-subtle rounded-2xl p-4 shadow-xl">
+    <div class="flex items-start gap-3">
+      <span class="material-symbols-outlined text-primary text-xl">cookie</span>
+      <div class="flex-1 text-xs">
+        <strong class="block text-text-main">Privacidade & Cookies</strong>
+        <p class="text-text-muted mt-0.5">Utilizamos cookies essenciais para personalizar sua experiência em nosso site.</p>
+      </div>
+    </div>
+    <div class="flex justify-end gap-2 mt-3">
+      <button onclick="acceptCookies()" class="px-4 py-1.5 rounded-lg bg-primary text-white text-xs font-semibold">Entendi e Aceitar</button>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div id="toast-container" class="fixed top-20 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- ========================================== -->
+  <!-- 9. JAVASCRIPT ENGINE (TUDO INTEGRADO) -->
+  <!-- ========================================== -->
+  <script>
+    // System Initialization
+    document.addEventListener("DOMContentLoaded", () => {
+      // Set min date for booking modal
+      const modalDate = document.getElementById('modal-date');
+      if (modalDate) {
+        const today = new Date().toISOString().split('T')[0];
+        modalDate.min = today;
+        modalDate.value = today;
+      }
+
+      // Check cookie preference
+      if (localStorage.getItem('fran_cookie_consent') === 'true') {
+        document.getElementById('cookie-banner').classList.add('hidden');
+      }
+    });
+
+    // Mobile Drawer Navigation
+    function toggleMobileDrawer() {
+      const drawer = document.getElementById('mobile-drawer');
+      const content = document.getElementById('mobile-drawer-content');
+      if (drawer.classList.contains('opacity-0')) {
+        drawer.classList.remove('opacity-0', 'pointer-events-none');
+        content.classList.remove('-translate-x-full');
+      } else {
+        content.classList.add('-translate-x-full');
+        drawer.classList.add('opacity-0', 'pointer-events-none');
+      }
+    }
+
+    // Modal Handlers
+    function openBookingModal() {
+      document.getElementById('booking-modal').classList.remove('hidden');
+    }
+    function closeBookingModal() {
+      document.getElementById('booking-modal').classList.add('hidden');
+    }
+    function openProfileModal() {
+      document.getElementById('profile-modal').classList.remove('hidden');
+    }
+    function closeProfileModal() {
+      document.getElementById('profile-modal').classList.add('hidden');
+    }
+
+    // Cookie Consent
+    function openCookieSettings() {
+      document.getElementById('cookie-banner').classList.remove('hidden');
+    }
+    function acceptCookies() {
+      localStorage.setItem('fran_cookie_consent', 'true');
+      document.getElementById('cookie-banner').classList.add('hidden');
+      showToast('Preferências de cookies salvas!', 'success');
+    }
+
+    // Quick Book Action from Flipcards
+    function quickBookService(serviceName) {
+      openBookingModal();
+      const select = document.getElementById('modal-service');
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].value.includes(serviceName)) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+    }
+
+    // Form Submit Handlers (WhatsApp Redirects)
+    function handleQuickFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('form-name').value.trim();
+      const phone = document.getElementById('form-phone').value.trim();
+      const service = document.getElementById('form-service').value;
+
+      const text = `Olá, Fran Andrade Studio!%0A%0A*Pré-Agendamento Rápido:*%0A• *Nome:* ${encodeURIComponent(name)}%0A• *Telefone:* ${encodeURIComponent(phone)}%0A• *Serviço:* ${encodeURIComponent(service)}`;
+      window.open(`https://wa.me/5519981178104?text=${text}`, '_blank');
+    }
+
+    function handleModalBookingSubmit(e) {
+      e.preventDefault();
+      const service = document.getElementById('modal-service').value;
+      const date = document.getElementById('modal-date').value;
+      const time = document.getElementById('modal-time').value;
+      const name = document.getElementById('modal-name').value.trim();
+      const phone = document.getElementById('modal-phone').value.trim();
+
+      const text = `Olá, Fran Andrade Studio!%0A%0A*Agendamento VIP:*%0A• *Nome:* ${encodeURIComponent(name)}%0A• *Telefone:* ${encodeURIComponent(phone)}%0A• *Serviço:* ${encodeURIComponent(service)}%0A• *Data Pretendida:* ${encodeURIComponent(date)} às ${encodeURIComponent(time)}`;
+      window.open(`https://wa.me/5519981178104?text=${text}`, '_blank');
+      closeBookingModal();
+    }
+
+    // Quiz Engine
+    let quizData = { saude: '', comprimento: '', objetivo: '' };
+
+    function selectQuizOption(step, category, val, btn) {
+      quizData[category] = val;
+      const siblings = btn.parentElement.querySelectorAll('.quiz-opt-btn');
+      siblings.forEach(s => s.classList.remove('border-primary', 'bg-primary-light'));
+      btn.classList.add('border-primary', 'bg-primary-light');
+    }
+
+    function calculateQuizResult() {
+      if (!quizData.saude || !quizData.comprimento || !quizData.objetivo) {
+        showToast('Por favor, responda a todas as etapas do quiz!', 'info');
+        return;
+      }
+
+      const titleElem = document.getElementById('quiz-result-title');
+      const descElem = document.getElementById('quiz-result-desc');
+
+      if (quizData.objetivo === 'Iluminar com Mechas') {
+        titleElem.innerText = 'Mechas & Balayage Iluminada';
+        descElem.innerText = `Como seu cabelo está ${quizData.saude.toLowerCase()}, recomendamos um diagnóstico prévio com aplicação de protetor Plex durante a descoloração.`;
+      } else if (quizData.objetivo === 'Renovar o Corte') {
+        titleElem.innerText = 'Corte Visagista Personalizado';
+        descElem.innerText = `Ideal para devolver movimento aos seus fios ${quizData.comprimento.toLowerCase()} com harmonia ao formato do seu rosto.`;
+      } else {
+        titleElem.innerText = 'Cronograma & Terapia Capilar';
+        descElem.innerText = 'Indicamos um protocolo intensivo de reconstrução e nutrição profunda para resgatar a densidade e o brilho dos fios.';
+      }
+
+      document.getElementById('quiz-container').classList.add('hidden');
+      document.getElementById('quiz-result').classList.remove('hidden');
+    }
+
+    function resetQuiz() {
+      quizData = { saude: '', comprimento: '', objetivo: '' };
+      document.querySelectorAll('.quiz-opt-btn').forEach(btn => btn.classList.remove('border-primary', 'bg-primary-light'));
+      document.getElementById('quiz-container').classList.remove('hidden');
+      document.getElementById('quiz-result').classList.add('hidden');
+    }
+
+    function bookQuizRecommendation() {
+      const title = document.getElementById('quiz-result-title').innerText;
+      quickBookService(title);
+    }
+
+    // Package Calculator Engine
+    function updateComboTotal() {
+      const checkboxes = document.querySelectorAll('.combo-cb:checked');
+      const listElem = document.getElementById('combo-selected-list');
+      const priceElem = document.getElementById('combo-total-price');
+      const timeElem = document.getElementById('combo-time');
+      const bookBtn = document.getElementById('combo-book-btn');
+      const discountRow = document.getElementById('combo-discount-row');
+      const discountVal = document.getElementById('combo-discount-val');
+
+      if (checkboxes.length === 0) {
+        listElem.innerHTML = '<p class="italic">Nenhum serviço selecionado. Marque as opções ao lado.</p>';
+        priceElem.innerText = 'R$ 0';
+        timeElem.innerText = '0 min';
+        discountRow.classList.add('hidden');
+        bookBtn.disabled = true;
+        return;
+      }
+
+      let rawTotal = 0;
+      let totalTime = 0;
+      let htmlList = '';
+
+      checkboxes.forEach(cb => {
+        const price = parseFloat(cb.value);
+        const time = parseInt(cb.getAttribute('data-time'));
+        const name = cb.getAttribute('data-name');
+
+        rawTotal += price;
+        totalTime += time;
+
+        htmlList += `<div class="flex justify-between items-center text-text-main font-medium">
+          <span>• ${name}</span>
+          <span>R$ ${price}</span>
+        </div>`;
+      });
+
+      let finalTotal = rawTotal;
+      if (checkboxes.length >= 3) {
+        const discount = rawTotal * 0.10;
+        finalTotal = rawTotal - discount;
+        discountVal.innerText = `- R$ ${discount.toFixed(0)}`;
+        discountRow.classList.remove('hidden');
+      } else {
+        discountRow.classList.add('hidden');
+      }
+
+      const hrs = Math.floor(totalTime / 60);
+      const mins = totalTime % 60;
+      const timeStr = hrs > 0 ? `${hrs}h ${mins > 0 ? mins + 'min' : ''}` : `${mins} min`;
+
+      listElem.innerHTML = htmlList;
+      priceElem.innerText = `R$ ${finalTotal.toFixed(0)}`;
+      timeElem.innerText = timeStr;
+      bookBtn.disabled = false;
+    }
+
+    function bookCustomCombo() {
+      openBookingModal();
+      document.getElementById('modal-service').value = 'Combo Personalizado VIP';
+    }
+
+    // Chatbot Engine
+    function toggleChatbot() {
+      document.getElementById('chatbot-window').classList.toggle('hidden');
+    }
+
+    function sendQuickChatMessage(msg) {
+      appendChatMessage(msg, 'user');
+      processChatResponse(msg);
+    }
+
+    function handleChatFormSubmit(e) {
+      e.preventDefault();
+      const input = document.getElementById('chat-input');
+      const text = input.value.trim();
+      if (!text) return;
+
+      appendChatMessage(text, 'user');
+      input.value = '';
+      processChatResponse(text);
+    }
+
+    function appendChatMessage(msg, sender) {
+      const container = document.getElementById('chat-messages');
+      if (sender === 'user') {
+        container.insertAdjacentHTML('beforeend', `
+          <div class="flex items-start justify-end gap-2">
+            <div class="bg-primary text-white p-3 rounded-2xl rounded-tr-none max-w-[80%] leading-relaxed">
+              ${msg}
+            </div>
+          </div>
+        `);
+      } else {
+        container.insertAdjacentHTML('beforeend', `
+          <div class="flex items-start gap-2">
+            <div class="w-6 h-6 rounded-md bg-primary text-white flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">FA</div>
+            <div class="bg-surface-muted p-3 rounded-2xl rounded-tl-none border border-border-subtle/50 text-text-main leading-relaxed">
+              ${msg}
+            </div>
+          </div>
+        `);
+      }
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function processChatResponse(text) {
+      const container = document.getElementById('chat-messages');
+      const typingId = 'typing-' + Date.now();
+
+      // Typing indicator
+      container.insertAdjacentHTML('beforeend', `
+        <div id="${typingId}" class="flex items-start gap-2">
+          <div class="w-6 h-6 rounded-md bg-primary text-white flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">FA</div>
+          <div class="bg-surface-muted p-2.5 rounded-2xl rounded-tl-none border border-border-subtle/50 text-text-muted italic text-[11px]">
+            digitando...
+          </div>
+        </div>
+      `);
+      container.scrollTop = container.scrollHeight;
+
+      setTimeout(() => {
+        const typingElem = document.getElementById(typingId);
+        if (typingElem) typingElem.remove();
+
+        const lower = text.toLowerCase();
+        let response = "";
+
+        if (lower.includes('valor') || lower.includes('preço') || lower.includes('tabela') || lower.includes('quanto')) {
+          response = "Tabela de serviços principais:<br>• Corte Visagista: R$ 140<br>• Mechas & Balayage: R$ 380<br>• Terapia Capilar: R$ 190<br>• Escova Modelada: R$ 90<br><br>💡 Dica: Na <strong>Calculadora de Combos</strong> do site, 3 serviços garantem 10% de desconto!";
+        } else if (lower.includes('agendar') || lower.includes('marcar') || lower.includes('horário')) {
+          response = "Atendemos de terça a sábado, das 08h às 20h. Você pode pré-agendar clicando no botão 'Agendar' no topo ou diretamente pelo nosso WhatsApp (19) 98117-8104!";
+        } else if (lower.includes('endereço') || lower.includes('fica') || lower.includes('onde')) {
+          response = "Estamos localizadas na <strong>Av. Três, 341-405 - Jardim Sao Joao, Campinas/SP</strong>. Temos fácil estacionamento no local!";
+        } else if (lower.includes('cuidad') || lower.includes('pós') || lower.includes('manutenção')) {
+          response = "Para loiros e mechas, indicamos utilizar protetor térmico diariamente, fazer uso de shampoo sem sulfato e realizar nossa <strong>Terapia Capilar</strong> a cada 20-30 dias.";
+        } else {
+          response = `Obrigada pela mensagem! Para tirar dúvidas específicas ou confirmar horários com a Fran Andrade, fale conosco no WhatsApp:<br><br><a href="https://wa.me/5519981178104" target="_blank" class="inline-block px-3 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-[11px]"><i class="fa-brands fa-whatsapp mr-1"></i> Chamar no WhatsApp</a>`;
+        }
+
+        appendChatMessage(response, 'bot');
+      }, 800);
+    }
+
+    // Toast Notification System
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+
+      const toast = document.createElement('div');
+      toast.className = `toast-enter px-4 py-3 rounded-xl shadow-lg font-medium text-xs flex items-center gap-2 border bg-surface-card text-text-main border-border-subtle`;
+
+      toast.innerHTML = `<span class="material-symbols-outlined text-[18px] text-primary">${type === 'success' ? 'check_circle' : 'info'}</span><span>${message}</span>`;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(100%)';
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
